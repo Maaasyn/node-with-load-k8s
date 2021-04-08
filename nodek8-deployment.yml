@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-stress-deployment
+  labels:
+    app: node-stress
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-stress
+  template:
+    metadata:
+      labels:
+        app: node-stress
+    spec:
+      containers:
+      - name: node-stress
+        image: licencjat:reloc
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000

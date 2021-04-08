@@ -1,0 +1,1 @@
+{"version":3,"file":"fibonacciRecursive.js","sourceRoot":"","sources":["../../utils/fibonacciRecursive.ts"],"names":[],"mappings":";;AAAA,MAAM,SAAS,GAAG,CAAC,GAAW,EAAU,EAAE;IACxC,IAAI,GAAG,IAAI,CAAC;QAAE,OAAO,CAAC,CAAC;IACvB,OAAO,SAAS,CAAC,GAAG,GAAG,CAAC,CAAC,GAAG,SAAS,CAAC,GAAG,GAAG,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC;AAEF,kBAAe,SAAS,CAAC"}
