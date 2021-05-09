@@ -13,21 +13,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const memoryUsagePrinter_1 = __importDefault(require("../utils/memoryUsagePrinter"));
+const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+};
+function sleepv2(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
 const get = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     let buffer = [];
-    buffer.push(Buffer.alloc(1024 * 1024 * 50));
-    res.send(`Do tego zadania uzyto ${memoryUsagePrinter_1.default()} ramu`);
+    buffer.push(Buffer.alloc(1024 * 1024 * 50, 1));
+    yield sleepv2(500);
     buffer = null;
+    res.send(`Do tego zadania uzyto ${memoryUsagePrinter_1.default()} ramu`);
+    console.log(memoryUsagePrinter_1.default());
     next();
+    return;
 });
-const getId = (req, res, next) => {
-    let buffer = [];
+const getId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    buffer.push(Buffer.alloc(1024 * 1024 * id));
+    // buffer.push(Buffer.alloc(1024 * 1024 * id, 1));
+    let bufferFromAlloc = Buffer.alloc(1024 * 1024 * id, 1);
+    yield sleepv2(500);
+    bufferFromAlloc.fill(0);
+    bufferFromAlloc = null;
     res.send(`Do tego zadania uzyto ${memoryUsagePrinter_1.default()} ramu`);
-    buffer = null;
+    console.log(memoryUsagePrinter_1.default());
     next();
-};
+    return;
+});
 exports.default = {
     get,
     getId,
