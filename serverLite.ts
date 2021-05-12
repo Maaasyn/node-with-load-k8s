@@ -11,11 +11,11 @@ app.get("/stress/ram", (req, res, next) => {
 
   buffer.push(Buffer.alloc(1024 * 1024 * 50));
 
-  res.send(`Do tego zadania uzyto ${memoryUsage()} ramu`);
+  res.send(`This task consumed ${memoryUsage()} ram`);
   buffer = null;
   next();
 });
 
 app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+  console.log("App available on port 3000!");
 });

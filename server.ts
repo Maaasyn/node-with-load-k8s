@@ -15,7 +15,7 @@ app.use("/stress/ram", ramStressRoutes);
 app.use("/stress/cpu", cpuStressRoutes);
 
 app.get("/", (req, res, next) => {
-  res.send("Hello World!");
+  res.send("Example app listening on port 3000!");
 });
 
 app.listen(3000, function () {
