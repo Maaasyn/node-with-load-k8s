@@ -11,16 +11,14 @@ function sleepv2(ms) {
   });
 }
 
-const get = async (req: Request, res: Response, next: NextFunction) => {
+const get = async (_req: Request, res: Response, _next: NextFunction) => {
   let buffer = [];
 
   buffer.push(Buffer.alloc(1024 * 1024 * 50, 1));
-  await sleepv2(500);
+  await sleepv2(100);
   buffer = null;
   res.send(`Do tego zadania uzyto ${memoryUsage()} ramu`);
   console.log(memoryUsage());
-  next();
-  return;
 };
 
 interface reqProps {
@@ -30,19 +28,18 @@ interface reqProps {
 const getId = async (
   req: Request<reqProps, {}, reqProps>,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
   const { id } = req.params;
 
   // buffer.push(Buffer.alloc(1024 * 1024 * id, 1));
   let bufferFromAlloc = Buffer.alloc(1024 * 1024 * id, 1);
-  await sleepv2(500);
+  await sleepv2(100);
   bufferFromAlloc.fill(0);
+
   bufferFromAlloc = null;
   res.send(`Do tego zadania uzyto ${memoryUsage()} ramu`);
   console.log(memoryUsage());
-  next();
-  return;
 };
 
 export default {

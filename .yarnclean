@@ -1,0 +1,52 @@
+*.md
+LICENSE
+*.d.ts
+.npmignore
+.travis.yml
+*.txt
+license
+*.html
+*.spec.js
+*.test.js
+.eslintignore
+
+__tests__
+test
+tests
+powered-test
+
+# asset directories
+docs
+doc
+website
+images
+assets
+
+# examples
+example
+examples
+
+# code coverage directories
+coverage
+.nyc_output
+
+# build scripts
+Makefile
+Gulpfile.js
+Gruntfile.js
+
+# configs
+.tern-project
+.gitattributes
+.editorconfig
+.*ignore
+.eslintrc
+.jshintrc
+.flowconfig
+.documentup.json
+.yarn-metadata.json
+.*.yml
+*.yml
+
+# misc
+*.gz
