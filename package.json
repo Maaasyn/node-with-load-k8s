@@ -8,8 +8,6 @@
     "docker-dev": "ts-node-dev --poll ./server.ts",
     "build": "tsc --project ./",
     "start": "node ./dist/server.js",
-    "magic": "tsc --project ./ && node ./dist/server.js",
-    "magicLite": "tsc --project ./ && node ./dist/serverLite.js",
     "startLite": "node ./dist/serverLite.js"
   },
   "dependencies": {

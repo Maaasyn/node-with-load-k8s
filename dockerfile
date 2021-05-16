@@ -33,19 +33,3 @@ COPY --from=production /app/dist ./dist
 CMD ["dist/server.js"]
 
 # YARN CREATES BIGGER IMAGE SIZE
-# #Build
-# FROM base as build
-# RUN yarn install --link-duplicates
-# COPY . .
-# RUN yarn build
-
-# #Production
-# FROM base as production
-# COPY --from=build /app/dist ./dist
-# COPY .yarnclean ./
-# COPY yarn.lock ./
-# ENV NODE_ENV=production
-# RUN yarn install --production --link-duplicates
-# RUN yarn autoclean --force
-# CMD ["yarn", "start"]
-
