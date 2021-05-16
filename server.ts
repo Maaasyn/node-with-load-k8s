@@ -1,5 +1,4 @@
 import express from "express";
-import helloRoutes from "./routes/hello";
 import cpuStressRoutes from "./routes/cpuStress";
 import ramStressRoutes from "./routes/ramStress";
 import { v4 as uuidv4 } from "uuid";
