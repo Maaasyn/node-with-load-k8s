@@ -6,30 +6,30 @@ EXPOSE 3000/tcp
 
 #Developemnt
 FROM base as dev
-RUN ["yarn" ]
+RUN ["npm", "i" ]
 ENV NODE_ENV=development
-CMD ["yarn", "docker-dev"]
+CMD ["npm", "run", "docker-dev"]
 
 #Build
 FROM base as build
-RUN npm i
+RUN ["npm", "i"]
 COPY . .
-RUN npm run build
+RUN ["npm", "run", "build"]
 
 #PREPRODUCTION
-FROM base as production
+FROM base as preproduction
 COPY --from=build /app/dist ./dist
 COPY .yarnclean ./
 COPY yarn.lock ./
 ENV NODE_ENV=production
-RUN npm i --production
-RUN yarn autoclean --force
+RUN ["npm", "i", "--production"]
+RUN ["yarn", "autoclean", "--force"]
 
-# Distroless
+# Distroless- Production grade build
 FROM gcr.io/distroless/nodejs
 WORKDIR /app
-COPY --from=production /app/node_modules ./node_modules
-COPY --from=production /app/dist ./dist
+COPY --from=preproduction /app/node_modules ./node_modules
+COPY --from=preproduction /app/dist ./dist
 CMD ["dist/server.js"]
 
 # YARN CREATES BIGGER IMAGE SIZE
