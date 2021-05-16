@@ -4,10 +4,16 @@
 docker build -t licencjat .
 ```
 
+### Budowanie dockera
+
+```
+docker build -t licencjat:prod
+```
+
 ### Uruchamianie dokera
 
 ```
-docker run -d --name licencjat -p 3000:3000 licencjat:latest
+docker run -d --name licencjat -p 3000:3000 licencjat:prod
 ```
 
 ### loop strzelajacy do api
