@@ -1,15 +1,11 @@
 import { NextFunction, Response, Request } from "express";
 import memoryUsage from "../utils/memoryUsagePrinter";
 
-const sleep = (milliseconds: number) => {
-  return new Promise((resolve) => setTimeout(resolve, milliseconds));
-};
-
-function sleepv2(ms) {
+const sleepv2 = (ms: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
-}
+};
 
 const get = async (_req: Request, res: Response, _next: NextFunction) => {
   let buffer = [];

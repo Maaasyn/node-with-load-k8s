@@ -1,5 +1,4 @@
-import express, { Request } from "express";
-import memoryUsage from "../utils/memoryUsagePrinter";
+import express from "express";
 import ramStressController from "../controllers/ramStressController";
 
 const router = express.Router();

@@ -1,19 +1,10 @@
 import express from "express";
-import fibonacci from "../utils/fibonacciRecursive";
+import cpuController from "../controllers/cpuStressController";
 
 const router = express.Router();
-router.get("/", (req, res, next) => {
-  const fibonacciResult = fibonacci(5);
-  res.send(
-    `Tutaj bede zwracal fibonaci sequence, domyslnie jest to 5! Wynik to: ${fibonacciResult}`
-  );
-});
 
-router.get("/:id", (req, res, next) => {
-  const { id } = req.params;
+router.get("/", cpuController.get);
 
-  const result = fibonacci(parseInt(id));
-  res.send(`Ilosc iteracji: ${id}, Wynik: ${result}`);
-});
+router.get("/:id", cpuController.getId);
 
 export default router;
