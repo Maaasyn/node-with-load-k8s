@@ -18,6 +18,9 @@ spec:
       containers:
       - name: node-stress
         image: licencjat:prod
+        env:
+          - name: PORT
+            value: "3000"
         resources:
           limits:
             cpu: "500m"
