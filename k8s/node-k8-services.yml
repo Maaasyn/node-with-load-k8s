@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: node-stress-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP 
   selector:
     app: node-stress
   ports:
   - protocol: TCP
-    port: 3000
+    port: 3030
     targetPort: 3000
-    nodePort: 30000

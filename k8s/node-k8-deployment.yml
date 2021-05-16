@@ -16,13 +16,16 @@ spec:
     spec:
       containers:
       - name: node-stress
-        image: licencjat:1.0.0
+        image: maaasyn/licencjat:prod
+        env:
+          - name: PORT
+            value: "3000"
         resources:
           limits:
-            cpu: 500m
+            cpu: "500m"
             memory: "128Mi"
           requests:
-            cpu: 200m
-            memory: "128Mi"
+            cpu: "250m"
+            memory: "96Mi"
         ports:
         - containerPort: 3000

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: node-stress
-        image: licencjat:prod
+        image: maaasyn/licencjat:prod
         env:
           - name: PORT
             value: "3000"
@@ -43,7 +43,6 @@ spec:
   - protocol: TCP
     port: 3030
     targetPort: 3000
-    # nodePort: 30303
 ---
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
